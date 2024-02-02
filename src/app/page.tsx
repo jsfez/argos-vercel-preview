@@ -37,6 +37,14 @@ export default function Home() {
           height={37}
           priority
         />
+        <Image
+          src="https://argos-ci.com/badge-large.svg"
+          alt="Covered by Argos"
+          width={200}
+          height={40}
+          className="absolute top-16"
+          priority
+        />
       </div>
 
       <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">

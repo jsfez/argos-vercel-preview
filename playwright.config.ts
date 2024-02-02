@@ -42,6 +42,13 @@ export default defineConfig({
 
     // Capture screenshot after each test failure.
     screenshot: "only-on-failure",
+
+    // Run tests on Vercel Preview URLs.
+    baseURL: process.env.BASE_URL,
+    // Skip Vercel toolbar.
+    extraHTTPHeaders: {
+      "x-vercel-skip-toolbar": "1",
+    },
   },
 
   /* Configure projects for major browsers */
