@@ -19,14 +19,18 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
-  // Reporter to use
   reporter: [
-    ["list", "github"],
+    // Use "dot" reporter on CI, "list" otherwise (Playwright default).
+    process.env.CI ? ["dot"] : ["list"],
+    // Add Argos reporter.
     [
       "@argos-ci/playwright/reporter",
       {
         // Upload to Argos on CI only.
         uploadToArgos: !!process.env.CI,
+
+        // Set your Argos token (required if not using GitHub Actions).
+        token: process.env.ARGOS_TOKEN,
       },
     ],
   ],
